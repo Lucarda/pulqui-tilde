@@ -4,7 +4,7 @@ lib.name = pulqui~
 
 class.sources = \
 	pulqui~.c \
-
+	pulquilimiter~.c \
 
 datafiles = \
 
