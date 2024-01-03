@@ -19,7 +19,7 @@ typedef struct _pulquilimiter_tilde {
     t_outlet*x_out;
 } t_pulquilimiter_tilde;
 
-t_int *pulquilimiter_tilde_perform(t_int *w)
+static t_int *pulquilimiter_tilde_perform(t_int *w)
 {
     t_pulquilimiter_tilde *x = (t_pulquilimiter_tilde *)(w[1]);
     t_sample        *in1 =            (t_sample *)(w[2]);
@@ -42,13 +42,13 @@ t_int *pulquilimiter_tilde_perform(t_int *w)
     return (w+6);
 }
 
-void pulquilimiter_tilde_dsp(t_pulquilimiter_tilde *x, t_signal **sp)
+static void pulquilimiter_tilde_dsp(t_pulquilimiter_tilde *x, t_signal **sp)
 {
     dsp_add(pulquilimiter_tilde_perform, 5, x,
                     sp[0]->s_vec, sp[1]->s_vec, sp[2]->s_vec, sp[0]->s_n);
 }
 
-void pulquilimiter_tilde_free(t_pulquilimiter_tilde *x)
+static void pulquilimiter_tilde_free(t_pulquilimiter_tilde *x)
 {
     inlet_free(x->x_in2);
     inlet_free(x->x_in3);
@@ -56,7 +56,7 @@ void pulquilimiter_tilde_free(t_pulquilimiter_tilde *x)
     outlet_free(x->x_out);
 }
 
-void *pulquilimiter_tilde_new(t_floatarg thresh, t_floatarg makeup)
+static void *pulquilimiter_tilde_new(t_floatarg thresh, t_floatarg makeup)
 {
     t_pulquilimiter_tilde *x = (t_pulquilimiter_tilde *)pd_new(pulquilimiter_tilde_class);
 

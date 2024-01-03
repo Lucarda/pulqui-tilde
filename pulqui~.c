@@ -154,11 +154,7 @@ static void pulqui_tilde_do_pulqui(t_pulqui_tilde *x)
     {
          x->x_ramchpositive[i] = x->x_ramchpositive[x->x_len + i];
          x->x_ramchnegative[i] = x->x_ramchnegative[x->x_len + i];
-    }
-
-    for (i = 0; i < x->x_len; i++)
-    {
-        x->x_bufsignal[i] = x->x_ramch[i];
+         x->x_bufsignal[i] = x->x_ramch[i];
     }
 }
 
